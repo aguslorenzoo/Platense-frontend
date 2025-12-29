@@ -1,0 +1,102 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 30px 30px 30px;
+}
+
+.form-container {
+    border-radius: 6px;
+    padding: 15px;
+    background-color: rgb(234, 232, 232);
+    width: 350px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    font-weight: 400;
+    color: #27112a;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.form-group input:disabled {
+    background: #f7fafc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.button-container {
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-agregar {
+    background-color: rgb(123, 73, 123);
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    flex: 2;
+}
+
+/* SOLO ESTO AGREGAMOS PARA RESPONSIVE - NADA MÁS */
+
+/* Para pantallas más chicas que 400px (celulares pequeños) */
+@media (max-width: 400px) {
+    .container {
+        margin: 0 15px 15px 15px; /* Menos margen en celular */
+    }
+    
+    .form-container {
+        width: 100%; /* Que ocupe todo el ancho en celular */
+        max-width: 350px; /* Pero no más de tu medida */
+        padding: 12px; /* Un poco menos padding */
+    }
+    
+    .form-group input {
+        padding: 10px 12px; /* Inputs un poco más compactos */
+    }
+    
+    .btn-agregar {
+        padding: 12px; /* Botón un poco más compacto */
+        font-size: 13px; /* Texto un poco más pequeño */
+    }
+}
+
+/* Para evitar que iOS haga zoom en los inputs */
+@media (max-width: 768px) {
+    .form-group input {
+        font-size: 16px; /* iOS no hace zoom si es 16px o más */
+    }
+}
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

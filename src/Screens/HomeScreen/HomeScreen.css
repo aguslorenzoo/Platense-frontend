@@ -1,0 +1,20 @@
+.btn-container{
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.nav-link{
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+    margin: 0 15px 0 15px;
+    text-decoration: none;
+}
