@@ -1,9 +1,6 @@
-import dotenv from 'dotenv'
-
-dotenv.config()
 
 const ENVIRONMENT = {
-    API_URL: process.env.API_URL
+    API_URL: import.meta.env.API_URL
 }
 
 
