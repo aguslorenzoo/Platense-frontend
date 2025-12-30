@@ -1,10 +1,9 @@
 import axios from 'axios';
-
-const API_URL = 'http://localhost:8080/api/members';
+import ENVIRONMENT from '../config/environment.js';
 
 const api = {
   getJugadoras: async (categoria = null) => {
-    let url = API_URL;
+    let url = ENVIRONMENT.API_URL
     if (categoria && categoria !== 'Todas') {
       url += `?category=${categoria}`;
     }
@@ -14,9 +13,9 @@ const api = {
   },
 
   crearJugadora: async (jugadora) => {
-    const response = await axios.post(API_URL, jugadora);
+    const response = await axios.post(ENVIRONMENT.API_URL, jugadora);
     return response.data.data.member;
   }
 };
 
-export default api;
+export default api

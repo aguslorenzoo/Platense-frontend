@@ -1,0 +1,22 @@
+{
+  "short_name": "Platense",
+  "name": "Club Platense App",
+  "description": "Sistema de gestión de jugadoras",
+  "icons": [
+    {
+      "src": "platense.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "platense.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#7b497b",
+  "background_color": "#ffffff",
+  "scope": "/"
+}
