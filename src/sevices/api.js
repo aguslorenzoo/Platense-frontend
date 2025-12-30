@@ -1,9 +1,10 @@
 import axios from 'axios';
-import ENVIRONMENT from '../config/environment.js';
+
+const API_URL = 'https://platense-backend.vercel.app/api/members'
 
 const api = {
   getJugadoras: async (categoria = null) => {
-    let url = ENVIRONMENT.API_URL
+    let url = API_URL;
     if (categoria && categoria !== 'Todas') {
       url += `?category=${categoria}`;
     }
@@ -13,9 +14,9 @@ const api = {
   },
 
   crearJugadora: async (jugadora) => {
-    const response = await axios.post(ENVIRONMENT.API_URL, jugadora);
+    const response = await axios.post(API_URL, jugadora);
     return response.data.data.member;
   }
 };
 
-export default api
+export default api;
