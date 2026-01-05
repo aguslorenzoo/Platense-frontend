@@ -144,6 +144,38 @@
 }
 
 /* Botones */
+.btn-eliminar {
+    background-color: #eebcbc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+.btn-eliminar:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+.btn-eliminar:active {
+    transform: scale(0.95);
+}
+
+.btn-eliminar:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
 .btn-reintentar,
 .btn-actualizar,
 .btn-agregar {

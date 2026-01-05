@@ -31,14 +31,41 @@ const ListaJugadoras = () => {
         }
     }
 
-     const jugadorasPorCategoria = jugadoras.reduce((acc, jugadora) => {
+
+    const handleEliminar = async (id, nombre, apellido) => {
+        if (!window.confirm(`¿Estás seguro de que quieres eliminar a ${nombre} ${apellido}?`)) {
+            return;
+        }
+
+        try {
+            setCargando(true);
+            const response = await api.eliminarJugadora(id);
+            
+            if (response.ok) {
+                alert('Jugadora eliminada exitosamente');
+                // Actualizar la lista sin recargar toda la página
+                cargarJugadoras();
+            } else {
+                alert(`Error: ${response.message}`);
+                setCargando(false);
+            }
+        } catch (error) {
+            console.error('Error al eliminar:', error);
+            alert('Error al eliminar la jugadora');
+            setCargando(false);
+        }
+    }
+
+
+    const jugadorasPorCategoria = jugadoras.reduce((acc, jugadora) => {
         const categoria = jugadora.category || 'Sin categoría';
         if (!acc[categoria]) {
             acc[categoria] = [];
         }
         acc[categoria].push(jugadora);
         return acc;
-    }, {});
+    }, 
+    {})
 
     // Orden de categorías
     const ordenCategorias = ['u13', 'u15', 'u17', 'u21', 'Sin categoría'];
@@ -133,6 +160,7 @@ const ListaJugadoras = () => {
                                     <table>
                                         <thead>
                                             <tr>
+                                                <th></th>
                                                 <th>Nombre</th>
                                                 <th>Apellido</th>
                                                 <th>DNI</th>
@@ -144,6 +172,20 @@ const ListaJugadoras = () => {
                                         <tbody>
                                             {jugadorasCategoria.map(jugadora => (
                                                 <tr key={jugadora._id}>
+                                                     <td>
+                                                        <button 
+                                                            onClick={() => handleEliminar(
+                                                                jugadora._id, 
+                                                                jugadora.name, 
+                                                                jugadora.last_name
+                                                            )}
+                                                            className="btn-eliminar"
+                                                            title="Eliminar jugadora"
+                                                            disabled={cargando}
+                                                        >
+                                                            ❌
+                                                        </button>
+                                                    </td>
                                                     <td>{jugadora.name}</td>
                                                     <td>{jugadora.last_name}</td>
                                                     <td>{jugadora.dni}</td>

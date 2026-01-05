@@ -16,7 +16,12 @@ const api = {
   crearJugadora: async (jugadora) => {
     const response = await axios.post(API_URL, jugadora);
     return response.data.data.member;
-  }
-};
+  },
 
-export default api;
+  eliminarJugadora: async (id) => {
+    const response = await axios.delete(`${API_URL}/${id}`);
+    return response.data; 
+  }
+}
+
+export default api
