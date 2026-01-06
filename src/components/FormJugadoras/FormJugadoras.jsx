@@ -187,7 +187,7 @@ const FormJugadoras = ({onJugadoraAgregada}) => {
                         disabled={enviado} />
                     </div>  
 
-                    <div className="form-group">
+                    <div className="form-group date-form">
                         <label>Fecha de Nacimiento</label>
                         <input 
                             type="date" 
@@ -213,7 +213,7 @@ const FormJugadoras = ({onJugadoraAgregada}) => {
                             </div>
                         </div>
                     </div>
-                    
+                     
 
                     <div className="form-group">
                         <label>Club de origen</label>
